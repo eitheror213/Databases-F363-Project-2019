@@ -1,0 +1,183 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: Dec 15, 2019 at 09:34 PM
+-- Server version: 5.7.26
+-- PHP Version: 7.3.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `techjobproject`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `advisors`
+--
+
+CREATE TABLE `advisors` (
+  `id_number` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `dept` varchar(45) NOT NULL,
+  `num_students` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `advisors`
+--
+
+INSERT INTO `advisors` (`id_number`, `name`, `dept`, `num_students`) VALUES
+(34321988, 'Khaledi ', 'CMPSC', 12),
+(77776666, 'Zinoviev', 'CMPSC', 20),
+(88888888, 'Jiang', 'MATH', 15),
+(99999999, 'Xu', 'CMPSC', 18);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `application_records`
+--
+
+CREATE TABLE `application_records` (
+  `application_number` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `job_title` varchar(45) NOT NULL,
+  `company` varchar(45) NOT NULL,
+  `salary` int(11) NOT NULL,
+  `dept_contact` varchar(45) NOT NULL,
+  `applied_on` date NOT NULL,
+  `followed_up_on` date NOT NULL,
+  `offered_interview` varchar(4) DEFAULT NULL,
+  `offered_job` varchar(4) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `application_records`
+--
+
+INSERT INTO `application_records` (`application_number`, `student_id`, `job_title`, `company`, `salary`, `dept_contact`, `applied_on`, `followed_up_on`, `offered_interview`, `offered_job`) VALUES
+(1, 2448278, 'Junior Dev', 'Avid Technology', 70000, 'Bill Hegel', '2019-10-30', '2019-10-15', '', ''),
+(2, 2448278, 'Product Tester', 'Bose', 55000, 'Jake Gaulin', '2019-11-04', '2019-11-13', 'Y', 'N'),
+(3, 2448278, 'UX Researcher ', 'Dell EMC', 90000, 'Jiaorui Jiang', '2019-11-20', '2019-12-02', 'N', 'N'),
+(4, 2448278, 'Assistant Engineer', 'M Works Mastering', 60000, 'Jonathan Wyner', '2019-11-01', '2019-11-07', NULL, NULL),
+(5, 2448278, 'Smart App Developer', 'Sonos', 90000, 'Mark Wineburg', '2019-12-02', '2019-12-10', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `companies`
+--
+
+CREATE TABLE `companies` (
+  `company_name` varchar(45) NOT NULL,
+  `address` varchar(45) NOT NULL,
+  `zip` varchar(11) NOT NULL,
+  `industry` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `companies`
+--
+
+INSERT INTO `companies` (`company_name`, `address`, `zip`, `industry`) VALUES
+('Avid Technology', '75 Network Drive', '01803', 'Music Software'),
+('Bose Corporation', 'The Mountain', '01701', 'Consumer Audio'),
+('Dell EMC', '171 South Street', '01748', 'Commercial Storage and Server Systems '),
+('Izotope', '60 Hampshire Street', '02138', 'Music Software'),
+('M Works Mastering', '1035 Cambridge Street', '02141', 'Commercial Music Studio'),
+('MOTU', '1280 Mass Ave', '02138', 'Music Software'),
+('Q Division Studios', '363 Highland Ave', '02144', 'Commercial Music Studio'),
+('Sonos', '2 Ave De Lafayette ', '02111', 'Smart Speaker Systems ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `students`
+--
+
+CREATE TABLE `students` (
+  `studentID` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `year` varchar(12) NOT NULL,
+  `advisor` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`studentID`, `name`, `year`, `advisor`) VALUES
+(1112233, 'Iron Man', 'JR', 'Xu'),
+(1229876, 'Willard Boyle', 'SR', 'Zinoviev'),
+(1234545, 'Barack Obama', 'SR', 'Jiang'),
+(2324444, 'Black Widow', 'JR', 'Zinoviev'),
+(2448278, 'Logan Flagg', 'SR', 'Xu'),
+(3336745, 'Alan Turing', 'JR', 'Xu'),
+(5462233, 'Hu Jintao', 'SR', 'Jiang'),
+(5654999, 'Abbie Hoffman ', 'JR', 'Jiang'),
+(6661666, 'Taylor Swift', 'JR', 'Xu'),
+(9928877, 'Betty White', 'SR', 'Jiang');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `successful_hires`
+--
+
+CREATE TABLE `successful_hires` (
+  `student_id` int(11) NOT NULL,
+  `student_name` varchar(45) NOT NULL,
+  `title` varchar(45) NOT NULL,
+  `company` varchar(45) NOT NULL,
+  `dept_contact` varchar(45) NOT NULL,
+  `date_hired` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `advisors`
+--
+ALTER TABLE `advisors`
+  ADD PRIMARY KEY (`id_number`);
+
+--
+-- Indexes for table `application_records`
+--
+ALTER TABLE `application_records`
+  ADD PRIMARY KEY (`application_number`);
+
+--
+-- Indexes for table `companies`
+--
+ALTER TABLE `companies`
+  ADD PRIMARY KEY (`company_name`);
+
+--
+-- Indexes for table `students`
+--
+ALTER TABLE `students`
+  ADD PRIMARY KEY (`studentID`);
+
+--
+-- Indexes for table `successful_hires`
+--
+ALTER TABLE `successful_hires`
+  ADD PRIMARY KEY (`student_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `application_records`
+--
+ALTER TABLE `application_records`
+  MODIFY `application_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;

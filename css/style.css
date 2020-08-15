@@ -1,0 +1,99 @@
+
+table {
+  border-collapse: collapse;
+  border-spacing: 5;
+  margin-left: 120px;
+}
+
+td,
+th {
+  padding: 5px;
+  border-bottom: 5px solid #aaa;
+  text-align: center;
+}
+
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+article {
+  float: left;
+  width: 50%;
+  background: #ccc;
+  padding: 5px;
+  text-align: center;
+
+}
+aside {
+  float: right;
+  padding: 10px;
+  width: 50%;
+  height:450px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+* {
+  box-sizing: border-box;
+}
+
+}
+
+.colcontainer {
+  display: table;
+  width:100%;
+}
+
+.col {
+  display: table-cell;
+  padding: 16px;
+}
+
+ footer {
+  background-color: #666;
+  padding-top: 40px;
+  padding: 10px;
+  text-align: right;
+  font-size: 14px;
+  width:100%;
+  color: white;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  text-align: :center;
+  margin: 0 auto;
+}
+
+/* Style the topnav links */
+.topnav a {
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  margin: 0 auto;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+
+div.a{
+  text-indent: 50px;
+  width:50%;
+}
+
+
+
+
+
